@@ -34,6 +34,7 @@ struct ContentView: View {
                     .opacity(0.8)        
     }
 }
+
 ```
     </td>
   </tr>
