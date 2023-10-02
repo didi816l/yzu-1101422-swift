@@ -5,8 +5,9 @@
       <img src="https://raw.githubusercontent.com/didi816l/yzu-1101422-swift/main/IMG_0276.jpeg">
     </td>
     <td>
-      ```swift
-      import SwiftUI
+      
+```swift
+import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
@@ -21,8 +22,6 @@ struct ContentView: View {
             .aspectRatio( contentMode:.fill)
             .frame(width: 400, height: 300, alignment: /.center)
             .clipShape(Circle())
-        
-            
                 Text("不是對你沒感覺， \n是你沒開保時捷。")
                     .fontWeight(.heavy)
                     .lineSpacing(20)
@@ -32,11 +31,9 @@ struct ContentView: View {
                     .background(Color.blue)
                     .cornerRadius(20.0)
                     .opacity(0.8)        
-            
     }
 }
-
-      ```
+```
     </td>
   </tr>
 </table>
