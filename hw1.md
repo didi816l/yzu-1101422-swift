@@ -17,6 +17,7 @@ struct ContentView: View {
             Text("1101422 劉威佑")
             .foregroundColor(.red)
         }
+
         Image("me")
             .resizable()
             .aspectRatio( contentMode:.fill)
