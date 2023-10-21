@@ -1,8 +1,8 @@
-<h1>HW1</h1>
+<h1>HW2</h1>
 <table>
   <tr>
     <td>
-      <img src="https://raw.githubusercontent.com/didi816l/yzu-1101422-swift/main/IMG_0276.jpeg">
+      <img src="https://raw.githubusercontent.com/didi816l/yzu-1101422-swift/main/imghw2.png">
     </td>
     <td>
       
