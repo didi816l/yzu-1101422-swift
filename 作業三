@@ -1,0 +1,54 @@
+import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        TitleView()
+        HStack{
+            FruitView(imageName: "book")
+            FruitView(imageName: "bottle")
+            FruitView(imageName: "computer")
+        }
+        ZStack{
+            FruitView(imageName: "bottle")
+        }
+        HStack{
+            FruitView(imageName: "computer")
+            FruitView(imageName: "bottle")
+        }
+    }
+}
+    struct TitleView: View{
+        var body: some View{
+            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 2)
+            {
+                Text("劉威佑的")
+                    .font(.system(size:30))
+                Text("書櫃")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color(red:29/255,green :40/255,blue:192.255))
+            }
+        }
+        
+    }
+    
+    struct FruitView: View{
+        var imageName:String
+        var body: some View{
+            VStack{
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height:200,alignment: .center)
+                Text(imageName.capitalized)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .font(.system(size:20))
+            }.padding(.all,2)
+        }
+    }
+    extension UIScreen{
+        static let screenwidth = UIScreen.main.bounds.size.width
+        static let screensize = UIScreen.main.bounds.size
+        static let screenheight = UIScreen.main.bounds.size.height
+        
+    }
+
