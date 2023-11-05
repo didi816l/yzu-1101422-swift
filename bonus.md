@@ -29,7 +29,7 @@ struct ContentView: View {
                 Section(header: Text("日期"), content: {DatePicker("\(date.formatted(date: .numeric, time: .omitted))", selection: $date, displayedComponents: [.date])})
             }
             )
-                .navigationBarTitle("Settings")
+                //.navigationBarTitle("Settings")
         }
     }
 }
