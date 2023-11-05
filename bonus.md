@@ -40,6 +40,9 @@ struct ContentView: View {
                             Text("Stepper \(stepperValue)")
                         })
                     })
+                    Section(header: Text("日期"), content: {
+                        DatePicker("\(date.formatted(date: .numeric, time: .omitted))", selection: $date, displayedComponents: [.date])
+                    })
                     Section(header: Text("滑桿\(sliderValue,specifier: "%.2f")"), content: {
                         Slider(value: $sliderValue, in: 0...1)
                     })
