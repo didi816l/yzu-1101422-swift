@@ -1,3 +1,12 @@
+<h1>HW2</h1>
+<table>
+  <tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/didi816l/yzu-1101422-swift/main/imghw2.png">
+    </td>
+    <td>
+      
+```swift
 import SwiftUI
 
 struct ContentView: View {
@@ -19,12 +28,12 @@ struct ContentView: View {
 }
     struct TitleView: View{
         var body: some View{
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 2)
+            VStack(alignment: .center, spacing: 2)
             {
                 Text("劉威佑的")
                     .font(.system(size:30))
                 Text("書櫃")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .font(.title)
                     .foregroundColor(Color(red:29/255,green :40/255,blue:192.255))
             }
         }
@@ -40,7 +49,7 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(height:200,alignment: .center)
                 Text(imageName.capitalized)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .fontWeight(.bold)
                     .font(.system(size:20))
             }.padding(.all,2)
         }
@@ -52,3 +61,7 @@ struct ContentView: View {
         
     }
 
+  ```
+   
+  </tr>
+</table>
