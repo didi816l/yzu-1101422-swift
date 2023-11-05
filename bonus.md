@@ -45,7 +45,7 @@ struct ContentView: View {
                         Slider(value: $sliderValue, in: 0...1)
                     })
                     Section(header: Text("日期"), content: {
-                        DatePicker("\(date.formatted(date: .numeric, time: .omitted))", selection: $date, displayedComponents: [.date])
+                       
                     })
                 }
             )
