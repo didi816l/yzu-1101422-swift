@@ -20,7 +20,8 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView{
-            Form(content:
+            Form(
+            content:
             {
                 Section(header:Text("字型設定"),content:{Picker(selection: $displayFontSelected,label:Text("字型選擇(\(displayFontSelected))"),content: {ForEach(0..<displayFontType.count,id:\.self,content:{Text(self.displayFontType[$0])})})})
                 Section(header:Text("背景風格"),content:{Toggle(isOn: $IsDeepScheme,label:{Text("深色(\(String(IsDeepScheme)))")})})
