@@ -22,7 +22,8 @@ struct ContentView: View {
         NavigationView{
             Form(content:
             {
-                t
+                Section(header:Text("字型設定"),content:{Picker(selection: $displayFontSelected,label:Text("字型選擇(\(displayFontSelected))"),content: {ForEach(0..<displayFontType.count,id:\.self,content:{Text(self.displayFontType[$0])})})})
+                
             }
             )
                 .navigationBarTitle("Settings")
