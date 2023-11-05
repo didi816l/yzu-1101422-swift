@@ -7,7 +7,7 @@
     <td>
       
 ```swift
-  import SwiftUI
+import SwiftUI
 
 struct ContentView: View {
     let displayFontType = [".default",".rounded",".monspaced",".serif"]
