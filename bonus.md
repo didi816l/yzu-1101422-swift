@@ -7,84 +7,51 @@
     <td>
       
 ```swift
-  import SwiftUI
+ import SwiftUI
 
 struct ContentView: View {
-    @State private var opponentChoice = ""
-    @State private var yourChoice = ""
-    @State private var result = ""
+    let displayFontType = [".default",".rounded",".monospaced",".serif"]
+    @State var displayFontSelected = 0
+    @State var IsDeepScheme = false;
+    @State var colorArray:Array = [255.0,255.0,255.0]
+    @State var stepperValue = 0
+    @State var sliderValue = 0.0
+    @State var date = Date()
     
     var body: some View {
-        VStack {
-            Text("系統出拳：\(opponentChoice)")
-                .font(.system(size: 50))
-            Text("你出拳：\(yourChoice)")
-            .font(.system(size: 50))
-            Text("结果：\(result)")
-            .font(.system(size: 50))
-            HStack {
-                Button(action: {
-                    yourChoice = "剪刀"
-                    playGame()
-                }) {
-                    Text("剪刀")
-                        .font(.system(size: 50))
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+        NavigationView{
+            Form(
+                content: {
+                    Section(header: Text("字型設定"), content: {
+                        Picker(selection: $displayFontSelected, label: Text("字型選擇")){
+                            ForEach(0..<displayFontType.count, id: \.self, content:{
+                                Text(self.displayFontType[$0])  
+                            })
+                        }
+                    })
+                    Section(header: Text("背景風格"), content: {
+                        Toggle(isOn: $IsDeepScheme, label: {
+                            Text("深色\(String(IsDeepScheme))")
+                        })
+                    })
+                    Section(header: Text("計數器"), content: {
+                        Stepper( onIncrement: {stepperValue+=1}, onDecrement: {stepperValue-=1},
+                                 label: {
+                            Text("Stepper \(stepperValue)")
+                        })
+                    })
+                    Section(header: Text("滑桿\(sliderValue,specifier: "%.2f")"), content: {
+                        Slider(value: $sliderValue, in: 0...1)
+                    })
+                    Section(header: Text("日期"), content: {
+                        DatePicker("\(date.formatted(date: .numeric, time: .omitted))", selection: $date, displayedComponents: [.date])
+                    })
                 }
-                
-                Button(action: {
-                    yourChoice = "石頭"
-                    playGame()
-                }) {
-                    Text("石頭")
-                        .font(.system(size: 50))
-                        .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                
-                Button(action: {
-                    yourChoice = "布"
-                    playGame()
-                }) {
-                    Text("布")
-                        .font(.system(size: 50))
-                        .padding()
-                        .background(Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-            }
-        }
-    }
-    
-    func playGame() {
-        let choices = ["剪刀", "石頭", "布"]
-        opponentChoice = choices.randomElement()!
-        
-        if yourChoice == opponentChoice {
-            result = "平局"
-        } else if (yourChoice == "剪刀" && opponentChoice == "布") ||
-                    (yourChoice == "石頭" && opponentChoice == "剪刀") ||
-                    (yourChoice == "布" && opponentChoice == "石頭") {
-            result = "你赢了"
-        } else {
-            result = "你输了"
+            )
+            .navigationTitle("Settings 設定")
         }
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
-
 
   ```
    
