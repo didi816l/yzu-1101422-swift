@@ -42,6 +42,15 @@ struct ContentView: View {
         }
     }
 }
+struct Course:Identifiable{
+    var id=UUID()
+    var name:String
+    var image:String
+    var description:String
+    var isFeature:Bool
+}
+
+
 
 
   ```
