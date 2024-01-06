@@ -205,26 +205,6 @@ struct CardView:View{
         }
     }
 }
-struct WelcomeView:View{
-    @AppStorage("UserName") var UserName:String = ""
-    var body:some View{
-        VStack{
-            Text(UserName.isEmpty ? "" : UserName).font(.system(size:30))
-            Image("Apple")
-                .resizable()
-                .aspectRatio( contentMode: .fit)
-            Text("是時候該換電腦了！")
-                .fontWeight(.heavy)
-                .lineSpacing(20)
-                .font(.system(size:32.0))
-                .foregroundColor(.white)
-                .frame(width:350,height:150,alignment: .center)
-                .background(Color.blue)
-                .cornerRadius(20.0)
-                .multilineTextAlignment(.center)
-        }
-    }
-}
 
 
 
