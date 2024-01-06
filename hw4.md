@@ -187,7 +187,7 @@ struct CardView:View{
                     .padding(.all,10)
                 Text(myDictionary[currentCard].description)
                     .font(.body)
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(.blue)
                     .padding(.all,10)
             }
             .frame(minWidth:0,idealWidth:100,maxWidth:300,minHeight: 0,idealHeight: 100,maxHeight: 300,alignment: .center)
