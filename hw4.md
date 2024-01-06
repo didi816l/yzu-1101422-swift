@@ -178,34 +178,6 @@ var myDictionary = [
     
 ]
 
-struct CardView:View{
-    @State var currentCard = 0
-    var body: some View{
-        VStack{
-            VStack{
-                Text(myDictionary[currentCard].term)
-                    .font(.title)
-                    .padding(.all,10)
-                Text(myDictionary[currentCard].description)
-                    .font(.body)
-                    .foregroundColor(.blue)
-                    .padding(.all,10)
-            }
-            .frame(minWidth:0,idealWidth:100,maxWidth:300,minHeight: 0,idealHeight: 100,maxHeight: 300,alignment: .center)
-            .background(Color.green)
-            .onTapGesture {
-                if currentCard<myDictionary.count-1{
-                    currentCard+=1
-                }else{
-                    currentCard=0
-                }
-            }
-            Text("點擊看下一張")
-                .padding(.all,10)
-        }
-    }
-}
-
 
 
   ```
