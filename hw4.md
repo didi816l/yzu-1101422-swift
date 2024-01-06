@@ -50,6 +50,181 @@ struct Course:Identifiable{
     var isFeature:Bool
 }
 
+var courses = [
+    Course(name:"iMac",image:"iMac",description: "$44900",isFeature: true),
+    Course(name:"Mac mini",image:"mini",description: "$18900",isFeature: true),
+    Course(name:"Mac Studio",image:"studio",description: "$64999",isFeature: false),
+    Course(name:"MacBook Air",image:"air",description: "$42900",isFeature: false),
+    Course(name:"MacBook Pro",image:"pro",description: "$54900",isFeature: true)
+    
+]
+
+struct BasicImageRow:View{
+    var thisCourse:Course
+    var body:some View{
+        HStack{
+            Image(thisCourse.image)
+                .resizable()
+                .frame(width:40,height:40)
+                .cornerRadius(5)
+            Text(thisCourse.name)
+        }
+    }
+}
+struct FullImageRow:View{
+    var thisCourse:Course
+    var body:some View{
+        ZStack{
+            Image(thisCourse.image)
+                .resizable()
+                .frame(height:180)
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(10)
+                .overlay(
+                    Rectangle()
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
+                        .opacity(0.2)
+                )
+            Text(thisCourse.name)
+                .font(.system(.title))
+                .fontWeight(.black)
+                .foregroundColor(.white)
+                .offset(x:0.0,y:50.0)
+        }
+    }
+}
+
+struct CourseDetailView:View{
+    @Environment(\.presentationMode) var presentationMode
+    var thisCourse:Course
+    var body: some View{
+        ScrollView{
+            VStack{
+                Image(thisCourse.image)
+                    .resizable()
+                    .aspectRatio(contentMode:.fill)
+                    .clipped()
+                Text(thisCourse.name)
+                    .font(.system(.title, design: .rounded))
+                    .fontWeight(.black)
+                Spacer()
+                Text(thisCourse.description)
+                    .font(.system(.subheadline,design: .rounded))
+                    .fontWeight(.light)
+                Spacer()
+            }
+        }
+        .overlay(
+        HStack{
+            Spacer()
+            VStack{
+                Button(action:{
+                    self.presentationMode.wrappedValue.dismiss()
+                },label: {
+                    Image(systemName: "chevron.down.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                })
+                .padding(.trailing,20)
+                .padding(.top,40)
+                Spacer()
+            }
+        }
+        )
+    }
+}
+
+struct CourseListView:View{
+    @State var showDetailView = false
+    @State var selectedCourse:Course?
+    var body: some View{
+        NavigationView{
+            List(courses){ 
+                courseItem in
+                if courseItem.isFeature
+                {
+                   FullImageRow(thisCourse: courseItem)
+                    .onTapGesture{
+                        self.showDetailView = true
+                        self.selectedCourse = courseItem
+                    }
+                }else{
+                    BasicImageRow(thisCourse: courseItem)
+                        .onTapGesture {
+                            self.showDetailView = true
+                            self.selectedCourse = courseItem
+                        }
+                }
+            }
+            .sheet(item:self.$selectedCourse){ thisCourse in
+                CourseDetailView(thisCourse:thisCourse)
+            }
+            .navigationBarTitle("動畫列表")
+        }
+    }
+}
+struct TermAndDescription:Identifiable{
+    var id = UUID()
+    var term:String
+    var description:String
+}
+
+var myDictionary = [
+    TermAndDescription(term:"R2 Score",description: "1"),
+    TermAndDescription(term:"R2 Score",description: "2"),
+    TermAndDescription(term:"R2 Score",description: "3"),
+    TermAndDescription(term:"R2 Score",description: "4")
+    
+]
+
+struct CardView:View{
+    @State var currentCard = 0
+    var body: some View{
+        VStack{
+            VStack{
+                Text(myDictionary[currentCard].term)
+                    .font(.title)
+                    .padding(.all,10)
+                Text(myDictionary[currentCard].description)
+                    .font(.body)
+                    .foregroundColor(.blue)
+                    .padding(.all,10)
+            }
+            .frame(minWidth:0,idealWidth:100,maxWidth:300,minHeight: 0,idealHeight: 100,maxHeight: 300,alignment: .center)
+            .background(Color.green)
+            .onTapGesture {
+                if currentCard<myDictionary.count-1{
+                    currentCard+=1
+                }else{
+                    currentCard=0
+                }
+            }
+            Text("點擊看下一張")
+                .padding(.all,10)
+        }
+    }
+}
+struct WelcomeView:View{
+    @AppStorage("UserName") var UserName:String = ""
+    var body:some View{
+        VStack{
+            Text(UserName.isEmpty ? "" : UserName).font(.system(size:30))
+            Image("Apple")
+                .resizable()
+                .aspectRatio( contentMode: .fit)
+            Text("是時候該換電腦了！")
+                .fontWeight(.heavy)
+                .lineSpacing(20)
+                .font(.system(size:32.0))
+                .foregroundColor(.white)
+                .frame(width:350,height:150,alignment: .center)
+                .background(Color.blue)
+                .cornerRadius(20.0)
+                .multilineTextAlignment(.center)
+        }
+    }
+}
 
 
 
