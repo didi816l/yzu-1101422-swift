@@ -4,8 +4,7 @@
     <td>
       <img src="https://raw.githubusercontent.com/didi816l/yzu-1101422-swift/main/IMG_0369.jpg">
     </td>
-    <td>
-      
+    <td>   
 ```swift
 import SwiftUI
 
@@ -175,6 +174,7 @@ var myDictionary = [
     TermAndDescription(term:"R2 Score",description: "2"),
     TermAndDescription(term:"R2 Score",description: "3"),
     TermAndDescription(term:"R2 Score",description: "4")
+    
 ]
 
 struct CardView:View{
@@ -283,6 +283,5 @@ struct SettingView: View {
 }
 
   ```
-   
   </tr>
 </table>
