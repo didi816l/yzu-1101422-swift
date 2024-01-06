@@ -2,116 +2,13 @@
 <table>
   <tr>
     <td>
-      <img src="https://raw.githubusercontent.com/didi816l/yzu-1101422-swift/main/IMG_0369.jpg">
+      <img src="https://raw.githubusercontent.com/didi816l/yzu-1101422-swift/main/hw4photo.jpg">
     </td>
     <td> 
       
 ```swift
 import SwiftUI
-/*
-struct CardView:View{
-    @State var currentCard = 0
-    var body: some View{
-        VStack{
-            VStack{
-                Text(myDictionary[currentCard].term)
-                    .font(.title)
-                    .padding(.all,10)
-                Text(myDictionary[currentCard].description)
-                    .font(.body)
-                    .foregroundColor(.blue)
-                    .padding(.all,10)
-            }
-            .frame(minWidth:0,idealWidth:100,maxWidth:300,minHeight: 0,idealHeight: 100,maxHeight: 300,alignment: .center)
-            .background(Color.green)
-            .onTapGesture {
-                if currentCard<myDictionary.count-1{
-                    currentCard+=1
-                }else{
-                    currentCard=0
-                }
-            }
-            Text("點擊看下一張")
-                .padding(.all,10)
-        }
-    }
-}
-struct WelcomeView:View{
-    @AppStorage("UserName") var UserName:String = ""
-    var body:some View{
-        VStack{
-            Text(UserName.isEmpty ? "" : UserName).font(.system(size:30))
-            Image("Apple")
-                .resizable()
-                .aspectRatio( contentMode: .fit)
-            Text("是時候該換電腦了！")
-                .fontWeight(.heavy)
-                .lineSpacing(20)
-                .font(.system(size:32.0))
-                .foregroundColor(.white)
-                .frame(width:350,height:150,alignment: .center)
-                .background(Color.blue)
-                .cornerRadius(20.0)
-                .multilineTextAlignment(.center)
-        }
-    }
-}
 
-struct SettingView: View {
-    let displayFontType = [".default",".rounded",".monspaced",".serif"]
-    @State var displayFontSelected = 0
-    @State var IsDeepScheme = false
-    @State var colorArray:Array = [255.0,255.0,255.0]
-    @State var stepperValue = 0
-    @State var sliderValue = 0.0
-    @State var date = Date()
-    @AppStorage("UserName") var UserName:String = ""
-    
-    var body: some View {
-        NavigationView{
-            Form(content:{
-                Section(content:{
-                    TextField("請輸入您的名字",text:$UserName)
-                    
-                },header:{
-                    Text("使用者名稱")
-                })
-                Section(header:Text("字型設定"),content:{
-                    Picker(selection: $displayFontSelected,
-                           label:Text("字型選擇(\(displayFontSelected))"),
-                           content: {
-                        ForEach(0..<displayFontType.count,
-                                id:\.self,
-                                content:{
-                            Text(self.displayFontType[$0])
-                        })
-                    })    
-                })
-                Section(header:Text("背景風格"),
-                        content:{
-                    Toggle(isOn: $IsDeepScheme,
-                           label:{Text("深色(\(String(IsDeepScheme)))")
-                        
-                    })
-                })
-                Section(header:Text("計數器")){
-                    Stepper("Stepper(\(stepperValue))",
-                            onIncrement:{stepperValue+=1},
-                            onDecrement:{stepperValue-=1}
-                    )
-                }
-                Section(header:Text("滑桿(\(sliderValue,specifier:"%.2f"))")){
-                    Slider(value:$sliderValue,in:0...1)
-                }
-                Section(header: Text("日期"), content: {
-                    DatePicker("\(date.formatted(date: .numeric, time: .omitted))", selection: $date, displayedComponents: [.date])
-                })
-            }
-            )
-            .navigationBarTitle("Settings")
-        }
-    }
-}*/
 struct ContentView: View {
     var body: some View {
         VStack {
