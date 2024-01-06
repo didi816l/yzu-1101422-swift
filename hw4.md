@@ -8,6 +8,7 @@
       
 ```swift
 import SwiftUI
+/*
 struct CardView:View{
     @State var currentCard = 0
     var body: some View{
@@ -110,7 +111,7 @@ struct SettingView: View {
             .navigationBarTitle("Settings")
         }
     }
-}
+}*/
 struct ContentView: View {
     var body: some View {
         VStack {
